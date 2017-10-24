@@ -1,5 +1,7 @@
 #!/bin/bash
 
+wget http://www.grokpodcast.com/atom.xml -q
+
 MAX=$(cat atom.xml| grep '<item>' -c)
 
 FILE_PREFIX="http://media.grokpodcast.com/"
