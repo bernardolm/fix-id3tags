@@ -27,12 +27,20 @@ do
     FILE=${FILE#$FILE_PREFIX}
     echo "FILE = $FILE"
 
-    FILE_PATH=$(echo "media/$FILE")
+    FILE_PATH="media/$FILE"
     echo "FILE_PATH = $FILE_PATH"
 
-    mid3v2 --convert --verbose "$(echo $FILE_PATH)"
-    mid3v2 --artist="Grok Podcast" --album="Grok Podcast" --song="$(echo $TITLE)" --genre="Podcast" --track="$(echo $i)" --verbose --picture="$(echo $IMG_PATH)" --date="$(echo $DATE)" "$(echo $FILE_PATH)"
-    mid3iconv --debug $(echo "media/$FILE")
+    mid3v2 --convert --verbose "$FILE_PATH"
+    mid3v2 --artist="Grok Podcast" \
+        --album="Grok Podcast" \
+        --song="$TITLE" \
+        --genre="Podcast" \
+        --track="" \
+        --picture="$IMG_PATH" \
+        --date="$DATE" \
+        --verbose \
+        "$FILE_PATH"
+    mid3iconv --debug "$FILE_PATH"
 
     echo -e "\n---\n"
 
