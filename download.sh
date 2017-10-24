@@ -7,5 +7,5 @@ max=$(echo $URLS | grep -c http)
 for i in $URLS
 do
     echo "$i"
-    wget $i --continue -q
+    wget $i --continue -q -P media/
 done
