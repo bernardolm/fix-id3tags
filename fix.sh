@@ -4,7 +4,7 @@ MAX=$(cat atom.xml| grep '<item>' -c)
 
 FILE_PREFIX="http://media.grokpodcast.com/"
 
-for i in `seq 148 $MAX`
+for i in `seq 1 $MAX`
 do
     TITLE=$(eval "xmllint --xpath 'string(//channel/item[$i]/title)' atom.xml")
     echo "TITLE = $TITLE"
